@@ -1,0 +1,11 @@
+Host jackdaw
+    Hostname 192.168.16.254
+    Port 22522
+    User root
+
+## Example of ProxyCommand
+#Host qos-client
+#    Hostname 172.16.0.244
+#    User user
+#    ProxyCommand ssh -W %h:%p qos-sip
+

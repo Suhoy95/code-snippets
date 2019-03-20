@@ -1,0 +1,19 @@
+[user]
+	email = suhoy95@gmail.com
+	# email = i.sukhoplyuev@innopolis.university
+	name = Ilya Sukhoplyuev
+[color]
+	ui = auto
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+[diff]
+	tool = meld
+[cola]
+	spellcheck = true
+
