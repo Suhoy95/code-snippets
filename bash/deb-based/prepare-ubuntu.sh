@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "ERROR: snippets is not a script. Finish"
+exit -1
+
 echo "TODO: setup git, bashrc, meld, Mate, vscode"
 sudo apt-get install                  \
     texlive-full lyx                  \
@@ -12,18 +15,31 @@ sudo apt-get install                  \
     apt-transport-https               \
     fortune-mod                       \
     mc vim mutt \
-    gnome-disk-utility
+    gnome-disk-utility	\
+    dstat tree \
+    sshfs \
+    libreoffice
 
-sudo add-apt-repository 'deb https://typora.io/linux ./'
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
+sudo add-apt-repository 'deb https://typora.io/linux ./'
 sudo apt-get update
 sudo apt-get install typora
 
-## WARN: NOT TESTED
-echo WARN: INSTALL vscode MANUALLY NOT TESTED
-# curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-# sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-# sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-# sudo apt-get update
-# sudo apt-get install code # or code-insiders
+sudo mkdir /windows
+sudo fdisk -l
+sudo mount -t ntfs -o nls=utf8,umask=0077,uid=$(id -u suhoy),gid=$(id -g suhoy) \
+    /dev/sdXXX /windows
+sudo blkid
+cat <<EOF >> /etc/fstab
+# windows partition
+UUID=E8E8F0FBE8F0C938 /windows ntfs nls=utf8,umask=0077,uid=1000,gid=1000 0 0
+EOF
 
+for $dirname in Documents Music Videos Downloads Pictures Desktop; do
+    tree $dirname
+    read -p "mv $dirname Continue?"
+    mv $dirname/* /windows/Users/suhoy/$dirname/
+    rmdir $dirname
+    ln --symbolic /windows/Users/suhoy/$dirname/ $dirname
+done
+rmdir Public Templates
