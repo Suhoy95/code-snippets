@@ -14,7 +14,7 @@ sudo apt-get install                  \
     gimp inkscape                     \
     apt-transport-https               \
     fortune-mod                       \
-    mc vim mutt \
+    mc vim mutt htop \
     gnome-disk-utility	\
     dstat tree \
     sshfs \
