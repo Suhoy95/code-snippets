@@ -22,7 +22,7 @@ __prompt_command() {
         PS1+="${Gre}\u${RCol}"
     fi
 
-    PS1+="${RCol}@${BBlu}\h ${Pur}\W${BYel}$ ${RCol}"
+    PS1+="${RCol}@${BBlu}\h ${Pur}\W${BYel}\\$ ${RCol}"
 }
 
 fortune
