@@ -1,4 +1,5 @@
 {
+    "chat.agent.thinking.terminalTools": false,
     "diffEditor.renderSideBySide": false,
     "editor.minimap.renderCharacters": false,
     "editor.renderControlCharacters": true,
@@ -10,9 +11,10 @@
     "files.eol": "\n",
     "files.trimTrailingWhitespace": true,
     "git.autofetch": false,
-    "telemetry.enableTelemetry": false,
+    "telemetry.telemetryLevel": "off",
     "terminal.integrated.shell.windows": "C:\\Users\\suhoy\\AppData\\Local\\Programs\\Git\\bin\\bash.exe",
-    "workbench.editor.showTabs": false,
-    "workbench.colorTheme": "Default Light+",
+    "workbench.editor.showTabs": "none",
+    "workbench.colorTheme": "Default Dark+",
     "window.zoomLevel": 0,
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
 }
